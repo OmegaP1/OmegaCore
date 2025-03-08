@@ -1,0 +1,32 @@
+# OmegaCore Website Requirements
+# Node.js v16+ is recommended
+
+# Core dependencies
+react@18.2.0
+react-dom@18.2.0
+next@13.4.12
+tailwindcss@3.3.3
+postcss@8.4.27
+autoprefixer@10.4.14
+
+# UI and animations
+framer-motion@10.15.0
+react-icons@4.10.1
+react-intersection-observer@9.5.2
+
+# Development tools
+eslint@8.46.0
+eslint-config-next@13.4.12
+typescript@5.1.6
+@types/react@18.2.18
+@types/node@20.4.5
+prettier@3.0.0
+
+# Install with npm
+# npm install react@18.2.0 react-dom@18.2.0 next@13.4.12 tailwindcss@3.3.3 postcss@8.4.27 autoprefixer@10.4.14 framer-motion@10.15.0 react-icons@4.10.1 react-intersection-observer@9.5.2
+
+# Development dependencies
+# npm install -D eslint@8.46.0 eslint-config-next@13.4.12 typescript@5.1.6 @types/react@18.2.18 @types/node@20.4.5 prettier@3.0.0
+
+# Setup project with create-next-app
+# npx create-next-app@latest omegacore-website --typescript --tailwind --eslint

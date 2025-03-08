@@ -1,0 +1,82 @@
+"use client";
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import Button from '../ui/Button';
+import ParticlesBackground from '../animations/ParticlesBackground';
+
+const Hero: React.FC = () => {
+  return (
+    <section className="relative min-h-screen flex items-center overflow-hidden hero-pattern-bg">
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-secondary/20 z-0"></div>
+      
+      {/* Particles Background */}
+      <ParticlesBackground />
+      
+      {/* Content */}
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-3xl">
+          <motion.h1 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+          >
+            <span className="header-gradient-text">Advanced AI Solutions</span>
+            <br />
+            for Your Business
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl"
+          >
+            OmegaCore provides cutting-edge AI and personal assistant services to transform your business operations. Let us harness the power of artificial intelligence to elevate your enterprise to the next level.
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <Button href="#contact" size="lg">
+              Get Started
+            </Button>
+            <Button href="#services" variant="outline" size="lg">
+              Explore Services
+            </Button>
+          </motion.div>
+        </div>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 12, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="flex flex-col items-center"
+        >
+          <span className="text-white/60 text-sm mb-2">Scroll Down</span>
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+            <motion.div 
+              animate={{ y: [0, 12, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="w-1.5 h-1.5 bg-white/60 rounded-full"
+            />
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;
