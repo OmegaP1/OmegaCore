@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="64" height="64"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <circle cx="32" cy="32" r="32" fill="#0f172a"></circle>
+  
+  <!-- Omega Symbol -->
+  <path d="M32,12 C42,12 50,20 50,32 C50,44 42,52 32,52 C22,52 14,44 14,32 C14,20 22,12 32,12 Z M32,20 C26.5,20 22,25.5 22,32 C22,38.5 26.5,44 32,44 C37.5,44 42,38.5 42,32 C42,25.5 37.5,20 32,20 Z" fill="none" stroke="#f72585" stroke-width="3" stroke-linejoin="round"></path>
+  
+  <!-- Core element - center dot -->
+  <circle cx="32" cy="32" r="6" fill="#f72585">
+    <animate attributeName="r" values="6;7;6" dur="3s" repeatCount="indefinite"></animate>
+    <animate attributeName="opacity" values="1;0.8;1" dur="3s" repeatCount="indefinite"></animate>
+  </circle>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

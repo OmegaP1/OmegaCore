@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a0ca3" />
+      <stop offset="100%" stop-color="#4cc9f0" />
+    </linearGradient>
+    <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f72585" />
+      <stop offset="100%" stop-color="#7209b7" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Circle background -->
+  <circle cx="200" cy="200" r="180" fill="url(#bg-gradient)" />
+  <circle cx="200" cy="200" r="160" fill="#121212" stroke="#4cc9f0" stroke-width="2" />
+  
+  <!-- Omega Symbol -->
+  <path d="M200,100 C255,100 300,145 300,200 C300,255 255,300 200,300 C145,300 100,255 100,200 C100,145 145,100 200,100 Z M200,140 C167.5,140 140,167.5 140,200 C140,232.5 167.5,260 200,260 C232.5,260 260,232.5 260,200 C260,167.5 232.5,140 200,140 Z" 
+        fill="none" stroke="url(#text-gradient)" stroke-width="15" stroke-linejoin="round" />
+  
+  <!-- Core element - center pulsing dot -->
+  <circle cx="200" cy="200" r="25" fill="#f72585">
+    <animate attributeName="r" values="25;35;25" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0.8;1" dur="3s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Connection lines radiating from center -->
+  <g stroke="#7209b7" stroke-width="2">
+    <line x1="200" y1="200" x2="260" y2="140" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite" />
+    </line>
+    <line x1="200" y1="200" x2="260" y2="260" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3s" repeatCount="indefinite" />
+    </line>
+    <line x1="200" y1="200" x2="140" y2="260" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3.5s" repeatCount="indefinite" />
+    </line>
+    <line x1="200" y1="200" x2="140" y2="140" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.5;0.8" dur="4.5s" repeatCount="indefinite" />
+    </line>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="350" font-family="Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="middle" fill="white">OMEGACORE</text>
+</svg>
