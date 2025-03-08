@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "./Button";
-import { supabaseClient } from "../../utils/supabase-client";
+import { supabaseClient } from "@/utils/supabase-client";
 
 interface FormData {
   name: string;
@@ -11,7 +11,6 @@ interface FormData {
   company: string;
   message: string;
   service: string;
-  honeypot: string; // Honeypot field to catch bots
 }
 
 interface ContactFormProps {
@@ -25,28 +24,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
     company: "",
     message: "",
     service: "default",
-    honeypot: "", // Honeypot field should remain empty
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [submitCount, setSubmitCount] = useState(0);
-  const [lastSubmitTime, setLastSubmitTime] = useState<number | null>(null);
-
-  // Load previous submission data from local storage
-  useEffect(() => {
-    const storedSubmitCount = localStorage.getItem("omegacore_submit_count");
-    const storedLastSubmitTime = localStorage.getItem("omegacore_last_submit");
-
-    if (storedSubmitCount) {
-      setSubmitCount(parseInt(storedSubmitCount, 10));
-    }
-
-    if (storedLastSubmitTime) {
-      setLastSubmitTime(parseInt(storedLastSubmitTime, 10));
-    }
-  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -57,81 +39,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const isValidEmail = (email: string): boolean => {
-    // Basic email validation regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const containsSpamKeywords = (text: string): boolean => {
-    const spamKeywords = [
-      "viagra",
-      "casino",
-      "lottery",
-      "prize",
-      "winner",
-      "free money",
-      "buy now",
-      "cheap",
-      "discount",
-      "earn money",
-      "get rich",
-    ];
-
-    const lowerText = text.toLowerCase();
-    return spamKeywords.some((keyword) =>
-      lowerText.includes(keyword.toLowerCase())
-    );
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
 
     try {
-      // Check for honeypot field (should be empty)
-      if (formData.honeypot) {
-        console.log("Bot detected");
-        // Fake success to not alert bots
-        setIsSubmitted(true);
-        return;
-      }
-
-      // Check for rate limiting
-      const now = Date.now();
-      if (
-        submitCount >= 3 &&
-        lastSubmitTime &&
-        now - lastSubmitTime < 86400000
-      ) {
-        // 24 hours
-        throw new Error(
-          "You have reached the maximum number of submissions. Please try again tomorrow."
-        );
-      }
-
-      // Check for rapid submission (less than 10 seconds)
-      if (lastSubmitTime && now - lastSubmitTime < 10000) {
-        throw new Error("Please wait a moment before submitting again.");
-      }
-
-      // Email validation
-      if (!isValidEmail(formData.email)) {
-        throw new Error("Please enter a valid email address.");
-      }
-
-      // Content spam check
-      if (
-        containsSpamKeywords(formData.message) ||
-        containsSpamKeywords(formData.name) ||
-        containsSpamKeywords(formData.company || "")
-      ) {
-        throw new Error(
-          "Your message contains content that appears to be spam."
-        );
-      }
-
       // Validate required fields
       if (
         !formData.name ||
@@ -140,18 +53,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
         formData.service === "default"
       ) {
         throw new Error("Please fill in all required fields");
-      }
-
-      // Check for suspicious message patterns
-      if (formData.message.length < 10) {
-        throw new Error("Please provide a more detailed message.");
-      }
-
-      if (
-        formData.message === formData.name ||
-        formData.message === formData.email
-      ) {
-        throw new Error("Please enter a proper message.");
       }
 
       // Submit the form data directly to Supabase
@@ -165,8 +66,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
             message: formData.message,
             service: formData.service,
             created_at: new Date().toISOString(),
-            user_agent: navigator.userAgent,
-            ip_hash: "client-side", // We can't get IP on client-side for privacy reasons
           },
         ]);
 
@@ -174,15 +73,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
         console.error("Supabase error:", supabaseError);
         throw new Error(supabaseError.message || "Error submitting form");
       }
-
-      // Update submission tracking
-      const newSubmitCount = submitCount + 1;
-      setSubmitCount(newSubmitCount);
-      setLastSubmitTime(now);
-
-      // Store in localStorage for rate limiting
-      localStorage.setItem("omegacore_submit_count", newSubmitCount.toString());
-      localStorage.setItem("omegacore_last_submit", now.toString());
 
       console.log("Form submitted successfully");
 
@@ -197,7 +87,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
           company: "",
           message: "",
           service: "default",
-          honeypot: "",
         });
         onClose();
       }, 3000);
@@ -387,20 +276,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
             className="w-full px-4 py-2 rounded-lg bg-medium border border-primary/30 text-white focus:outline-none focus:ring-2 focus:ring-accent/50 resize-none"
             placeholder="Tell us about your project or requirements..."
           ></textarea>
-        </div>
-
-        {/* Honeypot field - hidden from users but bots will fill it out */}
-        <div className="hidden" aria-hidden="true">
-          <label htmlFor="honeypot">Leave this field empty</label>
-          <input
-            type="text"
-            id="honeypot"
-            name="honeypot"
-            value={formData.honeypot}
-            onChange={handleChange}
-            tabIndex={-1}
-            autoComplete="off"
-          />
         </div>
 
         {error && <div className="text-red-400 text-sm py-2">{error}</div>}
