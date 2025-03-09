@@ -8,20 +8,20 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "OmegaCore - Advanced AI Solutions & Generative AI Services",
+  title: "OmegaCore AI - Advanced AI Solutions & Generative AI Services",
   description:
-    "OmegaCore provides cutting-edge AI services including personal assistants, generative AI solutions, and custom AI development to transform your business operations.",
+    "OmegaCore AI provides cutting-edge AI services including personal assistants, generative AI solutions, and custom AI development to transform your business operations.",
   keywords:
     "AI solutions, generative AI, AI personal assistants, AI integration, custom AI development, AI strategy consulting, AI training, artificial intelligence, machine learning",
-  authors: [{ name: "OmegaCore Technologies" }],
-  creator: "OmegaCore Technologies",
-  publisher: "OmegaCore Technologies",
+  authors: [{ name: "OmegaCore AI Technologies" }],
+  creator: "OmegaCore AI Technologies",
+  publisher: "OmegaCore AI Technologies",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://omegacore.com",
-    siteName: "OmegaCore Technologies",
-    title: "OmegaCore - Advanced AI Solutions & Generative AI Services",
+    url: "https://OmegaCore AI.com",
+    siteName: "OmegaCore AI Technologies",
+    title: "OmegaCore AI - Advanced AI Solutions & Generative AI Services",
     description:
       "Transform your business with cutting-edge AI and generative AI solutions.",
     images: [
@@ -29,16 +29,16 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "OmegaCore AI Solutions",
+        alt: "OmegaCore AI AI Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "OmegaCore - Advanced AI Solutions",
+    title: "OmegaCore AI - Advanced AI Solutions",
     description: "Transform your business with cutting-edge AI solutions.",
     images: ["/images/og-image.jpg"],
-    creator: "@omegacore",
+    creator: "@OmegaCore AI",
   },
   robots: {
     index: true,
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   alternates: {
-    canonical: "https://omegacore.com",
+    canonical: "https://OmegaCore AI.com",
   },
 };
 

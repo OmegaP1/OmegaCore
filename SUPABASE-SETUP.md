@@ -1,13 +1,13 @@
-# Setting Up Supabase for OmegaCore Contact Form
+# Setting Up Supabase for OmegaCore AI Contact Form
 
-This guide walks you through setting up a Supabase database to store form submissions from the OmegaCore website.
+This guide walks you through setting up a Supabase database to store form submissions from the OmegaCore AI website.
 
 ## Step 1: Create a Supabase Account and Project
 
 1. Go to [https://supabase.com/](https://supabase.com/) and sign up for a free account
 2. Once logged in, click "New Project"
 3. Enter project details:
-   - **Name**: OmegaCore
+   - **Name**: OmegaCore AI
    - **Database Password**: Create a strong password
    - **Region**: Choose a region closest to your target audience
    - **Pricing Plan**: Free tier

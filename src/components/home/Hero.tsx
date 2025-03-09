@@ -4,43 +4,64 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
 import ParticlesBackground from '../animations/ParticlesBackground';
+import TextAnimation from "../animations/TextAnimation";
+import ParallaxElement from "../animations/ParallaxElement";
 
 const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden hero-pattern-bg">
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-secondary/20 z-0"></div>
-      
+
+      {/* Parallax Elements */}
+      <ParallaxElement
+        offsetY={[-5, 5]}
+        className="absolute top-20 right-20 w-64 h-64 rounded-full bg-accent/5 blur-3xl z-0"
+        children={undefined}
+      />
+      <ParallaxElement
+        offsetY={[5, -15]}
+        className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl z-0"
+        speed={1.5}
+        children={undefined}
+      />
+
       {/* Particles Background */}
       <ParticlesBackground />
-      
+
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
-          <motion.h1 
+          <TextAnimation
+            text="Advanced AI Solutions"
+            as="h1"
+            type="word"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2 header-gradient-text"
+          />
+          <TextAnimation
+            text="for Your Business"
+            as="h1"
+            type="word"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
+            delay={0.3}
+          />
+
+          <motion.p
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-          >
-            <span className="header-gradient-text">Advanced AI Solutions</span>
-            <br />
-            for Your Business
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl"
           >
-            OmegaCore provides cutting-edge AI and personal assistant services to transform your business operations. Let us harness the power of artificial intelligence to elevate your enterprise to the next level.
+            OmegaCore AI provides cutting-edge AI and personal assistant
+            services to transform your business operations. Let us harness the
+            power of artificial intelligence to elevate your enterprise to the
+            next level.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4"
           >
             <Button href="#contact" size="lg">
@@ -52,12 +73,12 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
@@ -67,7 +88,7 @@ const Hero: React.FC = () => {
         >
           <span className="text-white/60 text-sm mb-2">Scroll Down</span>
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-            <motion.div 
+            <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
               className="w-1.5 h-1.5 bg-white/60 rounded-full"

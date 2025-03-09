@@ -3,84 +3,85 @@ export default function StructuredData() {
     const organizationSchema = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "OmegaCore",
-      "url": "https://omegacore.com",
-      "logo": "https://omegacore.com/images/logos/omegacore-logo.svg",
-      "sameAs": [
-        "https://twitter.com/omegacore",
-        "https://linkedin.com/company/omegacore",
-        "https://facebook.com/omegacore"
+      name: "OmegaCore AI",
+      url: "https://OmegaCore AI.com",
+      logo: "https://OmegaCore AI.com/images/logos/OmegaCore AI-logo.svg",
+      sameAs: [
+        "https://twitter.com/OmegaCore AI",
+        "https://linkedin.com/company/OmegaCore AI",
+        "https://facebook.com/OmegaCore AI",
       ],
-      "contactPoint": {
+      contactPoint: {
         "@type": "ContactPoint",
-        "telephone": "+1-555-123-4567",
-        "contactType": "customer service",
-        "availableLanguage": ["English"]
+        telephone: "+1-555-123-4567",
+        contactType: "customer service",
+        availableLanguage: ["English"],
       },
-      "description": "OmegaCore provides cutting-edge AI and personal assistant services to transform business operations."
+      description:
+        "OmegaCore AI provides cutting-edge AI and personal assistant services to transform business operations.",
     };
-  
+
     // Service schema
     const serviceSchema = {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "AI Solutions",
-      "provider": {
+      serviceType: "AI Solutions",
+      provider: {
         "@type": "Organization",
-        "name": "OmegaCore"
+        name: "OmegaCore AI",
       },
-      "areaServed": {
+      areaServed: {
         "@type": "Country",
-        "name": "Global"
+        name: "Global",
       },
-      "hasOfferCatalog": {
+      hasOfferCatalog: {
         "@type": "OfferCatalog",
-        "name": "AI Services",
-        "itemListElement": [
+        name: "AI Services",
+        itemListElement: [
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "AI Personal Assistants"
-            }
+              name: "AI Personal Assistants",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Generative AI Solutions"
-            }
+              name: "Generative AI Solutions",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "AI Integration Services"
-            }
+              name: "AI Integration Services",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "Custom AI Development"
-            }
+              name: "Custom AI Development",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "AI Strategy Consulting"
-            }
+              name: "AI Strategy Consulting",
+            },
           },
           {
             "@type": "Offer",
-            "itemOffered": {
+            itemOffered: {
               "@type": "Service",
-              "name": "AI Training & Education"
-            }
-          }
-        ]
-      }
+              name: "AI Training & Education",
+            },
+          },
+        ],
+      },
     };
   
     return (

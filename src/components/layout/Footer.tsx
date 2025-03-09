@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
     <footer className="relative bg-dark/80 py-12 overflow-hidden">
       {/* Top gradient border */}
       <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
-      
+
       <div className="container mx-auto px-6">
         <div className="text-center">
           <motion.div
@@ -37,12 +37,15 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             className="mb-6"
           >
-            <h2 className="text-2xl font-bold primary-gradient-text mb-2">OMEGACORE</h2>
+            <h2 className="text-2xl font-bold primary-gradient-text mb-2">
+              OmegaCore AI
+            </h2>
             <p className="text-sm text-white/60 max-w-md mx-auto">
-              Transforming businesses through advanced AI solutions and intelligent automation.
+              Transforming businesses through advanced AI solutions and
+              intelligent automation.
             </p>
           </motion.div>
-          
+
           {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -64,7 +67,7 @@ const Footer: React.FC = () => {
               </a>
             ))}
           </motion.div>
-          
+
           {/* Copyright */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -73,7 +76,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             className="text-white/50 text-sm"
           >
-            &copy; {currentYear} OmegaCore. All rights reserved.
+            &copy; {currentYear} OmegaCore AI. All rights reserved.
           </motion.p>
         </div>
       </div>

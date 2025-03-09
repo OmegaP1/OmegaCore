@@ -1,4 +1,4 @@
-# OmegaCore Image Assets
+# OmegaCore AI Image Assets
 
 ## Required Images for SEO and Browser Compatibility
 
@@ -17,13 +17,13 @@ The following image files need to be created and placed in appropriate directori
 
 ## How to Generate These Files
 
-1. Start with the OmegaCore logo SVG located in `/public/images/logos/omegacore-logo.svg`
+1. Start with the OmegaCore AI logo SVG located in `/public/images/logos/OmegaCore AI-logo.svg`
 2. Use a favicon generator tool such as:
    - [RealFaviconGenerator](https://realfavicongenerator.net/)
    - [Favicon.io](https://favicon.io/favicon-converter/)
 
 3. For the OpenGraph image, create a promotional banner that includes:
-   - The OmegaCore logo
+   - The OmegaCore AI logo
    - Tagline "Advanced AI Solutions"
    - A simple, clean background that matches your brand colors
 
