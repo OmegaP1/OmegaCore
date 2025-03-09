@@ -25,13 +25,14 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
 }) => {
   // Define base styles
-  const baseStyles = 'inline-block font-bold rounded-full transition-all duration-300';
-  
-  // Size variations
+  const baseStyles =
+    "inline-block font-bold rounded-full transition-all duration-300 mobile-friendly-button";
+
+  // Size variations - adjusted for better mobile touch targets
   const sizeStyles = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-7 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    sm: "px-4 py-2 text-sm",
+    md: "px-5 py-3 sm:px-7 sm:py-3 text-base",
+    lg: "px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg",
   };
   
   // Variant styles
