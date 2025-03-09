@@ -40,15 +40,17 @@ const Header: React.FC = () => {
         backdropFilter: headerBlur,
       }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "py-4 shadow-lg" : "py-6"
+        isScrolled ? "py-2 shadow-lg" : "py-3 sm:py-6"
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
+      <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
+        {/* Logo - smaller on mobile */}
         <a href="#" className="flex items-center">
-          <AnimatedLogo />
-          <h1 className="text-2xl font-bold primary-gradient-text">
-            OmegaCore AI
+          <div className="w-10 h-10 sm:w-14 sm:h-14 relative">
+            <AnimatedLogo />
+          </div>
+          <h1 className="text-xl sm:text-2xl font-bold primary-gradient-text ml-2 sm:ml-4">
+            OMEGACORE
           </h1>
         </a>
 

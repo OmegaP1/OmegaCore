@@ -13,36 +13,39 @@ const Hero: React.FC = () => {
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-secondary/20 z-0"></div>
 
-      {/* Parallax Elements */}
-      <ParallaxElement
-        offsetY={[-5, 5]}
-        className="absolute top-20 right-20 w-64 h-64 rounded-full bg-accent/5 blur-3xl z-0"
-        children={undefined}
-      />
-      <ParallaxElement
-        offsetY={[5, -15]}
-        className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl z-0"
-        speed={1.5}
-        children={undefined}
-      />
+      {/* Parallax Elements - Only on larger screens */}
+      <div className="hidden md:block">
+        <ParallaxElement
+          offsetY={[-5, 5]}
+          className="absolute top-20 right-20 w-64 h-64 rounded-full bg-accent/5 blur-3xl z-0"
+          children={undefined}
+        />
+        <ParallaxElement
+          offsetY={[5, -15]}
+          className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl z-0"
+          speed={1.5}
+          children={undefined}
+        />
+      </div>
 
       {/* Particles Background */}
       <ParticlesBackground />
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-3xl">
+          {/* Responsive text sizes */}
           <TextAnimation
             text="Advanced AI Solutions"
             as="h1"
             type="word"
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2 header-gradient-text"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-2 header-gradient-text"
           />
           <TextAnimation
             text="for Your Business"
             as="h1"
             type="word"
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white"
             delay={0.3}
           />
 
@@ -50,12 +53,12 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-            className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 mb-8 sm:mb-12 max-w-2xl"
           >
-            OmegaCore AI provides cutting-edge AI and personal assistant
-            services to transform your business operations. Let us harness the
-            power of artificial intelligence to elevate your enterprise to the
-            next level.
+            OmegaCore provides cutting-edge AI and personal assistant services
+            to transform your business operations. Let us harness the power of
+            artificial intelligence to elevate your enterprise to the next
+            level.
           </motion.p>
 
           <motion.div
