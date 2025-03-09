@@ -46,7 +46,13 @@ const services: ServiceLink[] = [
 
 const ServicesNavigation: React.FC = () => {
   const pathname = usePathname();
-  
+
+  // Function to handle link clicks with scroll to top
+  const handleServiceClick = () => {
+    // Reset scroll position when clicking a service link
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="bg-medium/50 backdrop-blur-sm py-4 sticky top-20 z-20 border-y border-white/10">
       <div className="container mx-auto px-4">
@@ -54,16 +60,17 @@ const ServicesNavigation: React.FC = () => {
           <div className="flex space-x-1 md:space-x-4 min-w-max pb-2">
             {services.map((service) => {
               const isActive = pathname === service.href;
-              
+
               return (
                 <Link
                   key={service.href}
                   href={service.href}
                   className={`relative px-3 py-2 rounded-full flex items-center whitespace-nowrap transition-colors ${
-                    isActive 
-                      ? 'text-white bg-accent/20' 
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
+                    isActive
+                      ? "text-white bg-accent/20"
+                      : "text-white/70 hover:text-white hover:bg-white/5"
                   }`}
+                  onClick={handleServiceClick}
                 >
                   {isActive && (
                     <motion.div
@@ -73,7 +80,7 @@ const ServicesNavigation: React.FC = () => {
                       transition={{ type: "spring", duration: 0.5 }}
                     />
                   )}
-                  <img 
+                  <img
                     src={`/images/icons/${service.icon}.svg`}
                     alt=""
                     className="w-4 h-4 mr-2"
