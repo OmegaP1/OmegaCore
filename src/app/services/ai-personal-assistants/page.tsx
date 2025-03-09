@@ -1,120 +1,139 @@
 import React from 'react';
-import ServiceLayout from '../../../components/services/ServiceLayout';
-import ServiceContent from '../../../components/services/ServiceContent';
+import { Metadata } from "next";
+import ServiceLayout from "../../../components/services/ServiceLayout";
+import ServiceContent from "../../../components/services/ServiceContent";
 
-export const metadata = {
-  title: 'AI Personal Assistants | OmegaCore',
-  description: 'Custom-built AI assistants designed to handle your tasks, manage your schedule, and provide real-time insights to enhance productivity and efficiency.',
-}
+export const metadata: Metadata = {
+  title: "AI Personal Assistants | OmegaCore AI",
+  description:
+    "Your custom AI helper that manages tasks, schedules, and gives you real-time insights to boost your productivity.",
+  keywords:
+    "AI personal assistants, virtual assistant, task automation, productivity tools, AI helper",
+};
 
 export default function AIPersonalAssistantsPage() {
   return (
     <ServiceLayout
       title="AI Personal Assistants"
-      subtitle="Custom-built AI assistants designed to handle your tasks, manage your schedule, and provide real-time insights to enhance productivity and efficiency."
+      subtitle="Your custom AI helper that manages tasks, schedules, and gives you real-time insights to boost your productivity."
       icon="personal-assistant"
     >
       <ServiceContent
-        overview="OmegaCore's AI Personal Assistants represent the cutting edge of productivity enhancement technology. Combining advanced natural language processing, machine learning, and task automation, our assistants are designed to understand your unique needs and preferences, adapting over time to become an invaluable member of your team. Unlike generic AI tools, our assistants are custom-built for your specific requirements, integrating seamlessly with your existing workflows and systems."
-        
+        overview="Think of OmegaCore's AI Assistant as your new team member who never sleeps. It learns how you work, adapts to your style, and handles routine tasks so you can focus on what really matters. Unlike off-the-shelf AI tools, our assistants are built specifically for your needs and work seamlessly with your existing systems."
         benefits={[
           {
-            title: "Time Savings",
-            description: "Reclaim up to 30% of your workday by delegating routine tasks to your AI assistant, allowing you to focus on high-value strategic activities."
+            title: "Save 30% of Your Day",
+            description:
+              "Hand off routine tasks to your AI and free up nearly a third of your workday for the strategic stuff that drives results.",
           },
           {
-            title: "Enhanced Productivity",
-            description: "Streamline workflows with intelligent automation and proactive assistance that anticipates your needs before you even express them."
+            title: "Get More Done, Automatically",
+            description:
+              "Your assistant learns your patterns and starts handling tasks before you even ask, making your workflow smoother than ever.",
           },
           {
-            title: "24/7 Availability",
-            description: "Access support, information, and task execution around the clock, ensuring your operations continue even outside of traditional business hours."
+            title: "Always On, Always Ready",
+            description:
+              "Need something at 2 AM? Your AI is there, ready to help whether you're burning the midnight oil or taking an early start.",
           },
           {
-            title: "Personalized Experience",
-            description: "Enjoy interactions tailored to your communication style, preferences, and priorities that improve over time through machine learning."
-          }
+            title: "It's All About You",
+            description:
+              "Your assistant adapts to how you communicate and what you prioritize, getting better and more personalized every day.",
+          },
         ]}
-        
         features={[
           {
-            title: "Natural Language Interaction",
-            description: "Communicate with your assistant through voice or text using everyday language, with support for multiple languages and contextual understanding."
+            title: "Talk Like You Normally Would",
+            description:
+              "Just speak or type naturally. Your assistant understands normal conversation, gets context, and works in multiple languages.",
           },
           {
-            title: "Intelligent Scheduling",
-            description: "Let your assistant manage your calendar, arrange meetings considering participants' availability, and optimize your day for maximum productivity."
+            title: "Your Calendar, Managed",
+            description:
+              "Let your assistant handle scheduling, find the perfect meeting times, and organize your day for maximum efficiency.",
           },
           {
-            title: "Document Management & Analysis",
-            description: "Organize, summarize, and extract insights from documents, emails, and reports, with the ability to draft responses and generate content."
+            title: "Document Whisperer",
+            description:
+              "Your assistant organizes files, pulls out key information, summarizes reports, and even drafts responses for you.",
           },
           {
-            title: "System Integration",
-            description: "Connect with your existing tools including CRM, project management software, communication platforms, and custom enterprise applications."
+            title: "Plays Well With Others",
+            description:
+              "Connects smoothly with your favorite tools - from your CRM and project software to email and messaging apps.",
           },
           {
-            title: "Data-Driven Insights",
-            description: "Receive proactive recommendations and analytics based on your data patterns, helping you make more informed decisions."
-          }
+            title: "Insights When You Need Them",
+            description:
+              "Get personalized recommendations based on your data patterns, helping you make smarter decisions faster.",
+          },
         ]}
-        
         process={[
           {
-            title: "Needs Assessment",
-            description: "We begin with a comprehensive analysis of your workflows, pain points, and objectives to identify where an AI assistant will deliver maximum value."
+            title: "Let's Get to Know You",
+            description:
+              "We start by understanding your workflow, challenges, and goals to identify exactly where an AI assistant will give you the biggest boost.",
           },
           {
-            title: "Custom Development",
-            description: "Our team designs and builds your personalized assistant, incorporating the specific capabilities required for your unique business context."
+            title: "Building Your Assistant",
+            description:
+              "Our team creates your custom assistant with the specific capabilities you need for your unique situation.",
           },
           {
-            title: "System Integration",
-            description: "We seamlessly connect your assistant with your existing digital ecosystem, ensuring smooth data flow and functionality across platforms."
+            title: "Connecting Everything",
+            description:
+              "We integrate your assistant with your existing digital tools, ensuring smooth information flow across all platforms.",
           },
           {
-            title: "Training & Deployment",
-            description: "Your team receives comprehensive training on maximizing the assistant's capabilities, followed by a phased implementation approach."
+            title: "Training Time",
+            description:
+              "Your team learns how to make the most of your new assistant, followed by a step-by-step rollout.",
           },
           {
-            title: "Continuous Improvement",
-            description: "We regularly refine your assistant based on usage data and feedback, enhancing its capabilities and effectiveness over time."
-          }
+            title: "Getting Better Together",
+            description:
+              "We fine-tune your assistant based on real-world use and feedback, making it more effective over time.",
+          },
         ]}
-        
         casestudy={{
-          title: "Fortune 500 Executive Team Productivity Transformation",
-          description: "A leadership team at a multinational corporation implemented OmegaCore AI assistants for their C-suite executives, seeking to reduce administrative burden and improve decision-making processes.",
+          title: "Executive Team Saves 14 Hours Every Week",
+          description:
+            "A leadership team at a Fortune 500 company brought in OmegaCore AI assistants to help their executives spend less time on admin work and more time on strategic decisions.",
           results: [
-            "Executives saved an average of 14 hours per week on administrative tasks",
-            "Meeting preparation time reduced by 60% with automated briefing generation",
-            "Email management efficiency improved by 75%",
-            "Decision-making accelerated through real-time data analysis and insights",
-            "Return on investment achieved within 4 months of implementation"
-          ]
+            "Executives gained back 14 hours weekly by offloading routine tasks",
+            "Meeting prep time cut by 60% through automated briefing notes",
+            "Email handling improved by 75%, focusing on what really matters",
+            "Faster decisions thanks to real-time data analysis",
+            "Full investment payback in just 4 months",
+          ],
         }}
-        
         faq={[
           {
-            question: "How secure is the data handled by the AI assistant?",
-            answer: "Security is our top priority. We implement enterprise-grade encryption, role-based access controls, and secure data handling protocols. All assistant interactions can be hosted within your security perimeter, and we comply with major regulations including GDPR, HIPAA, and SOC2 where applicable."
+            question: "How secure is my data with the AI assistant?",
+            answer:
+              "Security is our #1 priority. We use bank-level encryption, strict access controls, and secure handling protocols. Your assistant can work entirely within your security systems, and we comply with all major regulations like GDPR and HIPAA.",
           },
           {
-            question: "Can the assistant learn my personal preferences over time?",
-            answer: "Absolutely. Our AI assistants employ advanced machine learning algorithms that continuously adapt to your communication style, preferences, and patterns. The more you interact with your assistant, the more personalized the experience becomes."
+            question: "Will it really learn my personal preferences?",
+            answer:
+              "Absolutely! Our AI uses advanced learning algorithms that adapt to your communication style, preferences, and patterns. The more you use your assistant, the more personalized it becomes - like a team member who really gets to know you.",
           },
           {
-            question: "How long does implementation typically take?",
-            answer: "Implementation timelines vary based on complexity and integration requirements. Simple deployments can be completed in 2-4 weeks, while comprehensive enterprise solutions may take 2-3 months. We provide a detailed timeline during the initial consultation."
+            question: "How long before it's up and running?",
+            answer:
+              "Simple setups take 2-4 weeks, while more complex enterprise solutions might need 2-3 months. We'll give you a clear timeline during our first conversation.",
           },
           {
-            question: "Can the assistant work with our legacy systems?",
-            answer: "Yes. We've designed our AI assistants with flexibility in mind. They can integrate with a wide range of systems, including legacy applications, through custom APIs, middleware solutions, or direct integration methods."
+            question: "Can it work with our older systems?",
+            answer:
+              "Yes! We've designed our assistants to work with all kinds of systems, including legacy applications. We use custom connections, middleware solutions, or direct integration methods to make everything work smoothly together.",
           },
           {
-            question: "What kind of ROI can we expect?",
-            answer: "Most clients see ROI within 3-6 months. Typical returns come from time savings (20-30% productivity improvement), reduced error rates, faster information retrieval, and improved decision making. We provide ROI tracking tools to measure the impact on your specific business metrics."
-          }
+            question: "How quickly will we see results?",
+            answer:
+              "Most clients start seeing ROI within 3-6 months. You'll typically save 20-30% of your time, reduce mistakes, find information faster, and make better decisions. We provide tracking tools so you can see exactly how it's helping.",
+          },
         ]}
       />
     </ServiceLayout>
