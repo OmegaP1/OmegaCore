@@ -1,0 +1,105 @@
+/* Service Page Specific Styles */
+
+/* Fix scrollbar aesthetics for services navigation */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+  
+  /* Improved readability for service content */
+  .prose {
+    @apply text-white/80;
+  }
+  
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  .prose strong {
+    @apply text-white font-semibold;
+  }
+  
+  .prose ul {
+    @apply list-disc pl-5 my-4 space-y-2;
+  }
+  
+  .prose li {
+    @apply text-white/80;
+  }
+  
+  .prose h3 {
+    @apply text-xl font-semibold text-white mt-8 mb-4;
+  }
+  
+  .prose h4 {
+    @apply text-lg font-medium text-white mt-6 mb-3;
+  }
+  
+  /* Enhanced case study block */
+  .case-study-block {
+    @apply relative overflow-hidden;
+  }
+  
+  .case-study-block::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-accent rounded;
+  }
+  
+  /* Print styles for service pages */
+  @media print {
+    .glass-card {
+      box-shadow: none !important;
+      @apply border border-gray-300 bg-white text-black;
+    }
+    
+    .bg-gradient-to-r {
+      background: white !important;
+    }
+    
+    .text-white {
+      color: black !important;
+    }
+    
+    .text-white\/80 {
+      color: #333 !important;
+    }
+    
+    .text-accent {
+      color: #f72585 !important;
+    }
+    
+    header, footer, .sticky {
+      display: none !important;
+    }
+    
+    * {
+      break-inside: avoid;
+    }
+  }
+  
+  /* Theme support for service pages */
+  .light-mode .prose {
+    @apply text-dark/80;
+  }
+  
+  .light-mode .prose strong {
+    @apply text-dark;
+  }
+  
+  .light-mode .prose h3, 
+  .light-mode .prose h4 {
+    @apply text-dark;
+  }
+  
+  /* Improve service navigation for light mode */
+  .light-mode .bg-medium\/50 {
+    @apply bg-light/50;
+  }
+  
+  .light-mode .border-white\/10 {
+    @apply border-dark/10;
+  }

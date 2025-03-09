@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable static exports for hosting on traditional web servers
-  output: "export",
+  // Remove static export for dynamic routing
+  // output: 'export',
 
-  // Configure image domains if you're loading images from external sources
+  // Configure image domains
   images: {
     remotePatterns: [
       {
@@ -11,7 +11,6 @@ const nextConfig = {
         hostname: "**",
       },
     ],
-    unoptimized: true, // Required for static export
   },
 
   // Webpack configuration to handle missing optional dependencies
