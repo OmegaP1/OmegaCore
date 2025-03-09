@@ -1,6 +1,6 @@
-# OmegaCore Website
+# OmegaCore AI Website
 
-A modern, responsive website for OmegaCore - an AI solutions provider with a focus on personal assistants and generative AI technologies.
+A modern, responsive website for OmegaCore AI - an AI solutions provider with a focus on personal assistants and generative AI technologies.
 
 ## Features
 
@@ -31,8 +31,8 @@ A modern, responsive website for OmegaCore - an AI solutions provider with a foc
 
 1. Clone the repository
 ```bash
-git clone https://github.com/OmegaPrimePlusIT/omegacore.git
-cd omegacore
+git clone https://github.com/OmegaPrimePlusIT/OmegaCore AI.git
+cd OmegaCore AI
 ```
 
 2. Install dependencies
@@ -62,7 +62,7 @@ yarn build
 ## Project Structure
 
 ```
-omegacore-website/
+OmegaCore AI-website/
 ├── public/               # Static assets
 ├── src/
 │   ├── app/              # Next.js app directory

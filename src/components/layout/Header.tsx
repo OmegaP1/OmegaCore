@@ -35,21 +35,23 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      style={{ 
+      style={{
         backgroundColor: headerBg,
-        backdropFilter: headerBlur
+        backdropFilter: headerBlur,
       }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'py-4 shadow-lg' : 'py-6'
+        isScrolled ? "py-4 shadow-lg" : "py-6"
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <a href="#" className="flex items-center">
           <AnimatedLogo />
-          <h1 className="text-2xl font-bold primary-gradient-text">OMEGACORE</h1>
+          <h1 className="text-2xl font-bold primary-gradient-text">
+            OmegaCore AI
+          </h1>
         </a>
-        
+
         {/* Navigation */}
         <Navigation />
       </div>

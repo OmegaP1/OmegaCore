@@ -1,6 +1,6 @@
-# OmegaCore Website Setup Guide
+# OmegaCore AI Website Setup Guide
 
-This guide provides detailed instructions for setting up and deploying the OmegaCore website.
+This guide provides detailed instructions for setting up and deploying the OmegaCore AI website.
 
 ## Initial Setup
 
@@ -9,7 +9,7 @@ This guide provides detailed instructions for setting up and deploying the Omega
 The easiest way to set up this project is using the Create Next App command:
 
 ```bash
-npx create-next-app@latest omegacore-website --typescript --tailwind --eslint
+npx create-next-app@latest OmegaCore AI-website --typescript --tailwind --eslint
 ```
 
 After creating the project, replace the generated files with the ones from this repository.
@@ -18,8 +18,8 @@ After creating the project, replace the generated files with the ones from this 
 
 1. Create a new directory for the project:
 ```bash
-mkdir omegacore-website
-cd omegacore-website
+mkdir OmegaCore AI-website
+cd OmegaCore AI-website
 ```
 
 2. Initialize a new Node.js project:
@@ -66,7 +66,7 @@ Ensure you've created the following configuration files:
 If you need environment variables, create a `.env.local` file:
 ```
 # Example environment variables
-NEXT_PUBLIC_SITE_URL=https://omegacore.com
+NEXT_PUBLIC_SITE_URL=https://OmegaCore AI.com
 ```
 
 ## Development Workflow

@@ -53,9 +53,9 @@ const InitialLoader: React.FC<InitialLoaderProps> = ({
         <motion.div
           className="fixed inset-0 flex items-center justify-center bg-dark z-[100]"
           initial={{ opacity: 1 }}
-          exit={{ 
+          exit={{
             opacity: 0,
-            transition: { duration: 0.5, ease: "easeInOut" }
+            transition: { duration: 0.5, ease: "easeInOut" },
           }}
         >
           <motion.div
@@ -64,83 +64,83 @@ const InitialLoader: React.FC<InitialLoaderProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* OmegaCore Logo Animation */}
+            {/* OmegaCore AI Logo Animation */}
             <div className="mb-8 relative w-32 h-32 mx-auto">
               {/* Outer Circle */}
               <motion.div
                 className="absolute inset-0 rounded-full border-4 border-accent opacity-30"
                 initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ 
-                  scale: 1, 
+                animate={{
+                  scale: 1,
                   opacity: 0.3,
-                  transition: { 
+                  transition: {
                     duration: 1.5,
                     repeat: Infinity,
-                    repeatType: "reverse"
-                  } 
+                    repeatType: "reverse",
+                  },
                 }}
               />
-              
+
               {/* Middle Circle */}
               <motion.div
                 className="absolute inset-2 rounded-full border-2 border-primary"
                 initial={{ rotate: 0 }}
-                animate={{ 
+                animate={{
                   rotate: 360,
-                  transition: { 
-                    duration: 5, 
+                  transition: {
+                    duration: 5,
                     repeat: Infinity,
-                    ease: "linear" 
-                  } 
+                    ease: "linear",
+                  },
                 }}
               />
-              
+
               {/* Orbiting Dot */}
               <motion.div
                 className="absolute w-4 h-4 rounded-full bg-accent"
                 initial={{ rotate: 0, pathLength: 0 }}
-                animate={{ 
+                animate={{
                   rotate: 360,
-                  transition: { 
-                    duration: 2, 
+                  transition: {
+                    duration: 2,
                     repeat: Infinity,
-                    ease: "linear" 
-                  } 
+                    ease: "linear",
+                  },
                 }}
                 style={{
                   top: "calc(50% - 8px)",
                   left: "calc(50% - 8px)",
-                  transformOrigin: "calc(50% + 32px) calc(50% + 8px)"
+                  transformOrigin: "calc(50% + 32px) calc(50% + 8px)",
                 }}
               />
-              
+
               {/* Center Core */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 m-auto w-10 h-10 bg-accent rounded-full"
-                animate={{ 
+                animate={{
                   scale: [1, 1.1, 1],
                   opacity: [0.8, 1, 0.8],
-                  transition: { 
+                  transition: {
                     duration: 1,
                     repeat: Infinity,
-                    ease: "easeInOut" 
-                  } 
+                    ease: "easeInOut",
+                  },
                 }}
               />
             </div>
-            
+
             {/* Loading Text */}
-            <motion.h2 
+            <motion.h2
               className="text-2xl font-bold text-white mb-4"
               initial={{ opacity: 0 }}
-              animate={{ 
+              animate={{
                 opacity: 1,
-                transition: { delay: 0.3, duration: 0.2 }
+                transition: { delay: 0.3, duration: 0.2 },
               }}
             >
-              <span className="primary-gradient-text">OMEGACORE</span>
+              <span className="primary-gradient-text">OmegaCore AI</span>
             </motion.h2>
-            
+
             {/* Loading dots */}
             <div className="flex space-x-2 justify-center">
               {[0, 1, 2].map((i) => (
@@ -148,15 +148,15 @@ const InitialLoader: React.FC<InitialLoaderProps> = ({
                   key={i}
                   className="w-3 h-3 rounded-full bg-accent"
                   initial={{ opacity: 0.3, y: 0 }}
-                  animate={{ 
+                  animate={{
                     opacity: [0.3, 1, 0.3],
                     y: [0, -10, 0],
                     transition: {
                       duration: 1,
                       repeat: Infinity,
                       delay: i * 0.2,
-                      ease: "easeInOut"
-                    }
+                      ease: "easeInOut",
+                    },
                   }}
                 />
               ))}

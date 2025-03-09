@@ -1,12 +1,12 @@
-# OmegaCore Website SEO Guide
+# OmegaCore AI Website SEO Guide
 
-This guide outlines the SEO optimizations implemented for the OmegaCore website and provides recommendations for maintaining good search engine visibility.
+This guide outlines the SEO optimizations implemented for the OmegaCore AI website and provides recommendations for maintaining good search engine visibility.
 
 ## Implemented SEO Features
 
 ### 1. Meta Tags and Structured Data
-- **Title Tag**: "OmegaCore - Advanced AI Solutions & Generative AI Services"
-- **Meta Description**: Comprehensive description of OmegaCore's services
+- **Title Tag**: "OmegaCore AI - Advanced AI Solutions & Generative AI Services"
+- **Meta Description**: Comprehensive description of OmegaCore AI's services
 - **Keywords**: Relevant keywords for AI services and solutions
 - **Structured Data**: JSON-LD for Organization and Service schemas
 

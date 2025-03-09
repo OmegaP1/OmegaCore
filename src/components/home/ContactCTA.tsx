@@ -91,7 +91,7 @@ const ContactCTA: React.FC = () => {
 
         <ScrollReveal delay={0.2}>
           <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Contact us today to discover how OmegaCore can help you implement
+            Contact us today to discover how OmegaCore AI can help you implement
             powerful AI solutions tailored to your specific needs.
           </p>
         </ScrollReveal>

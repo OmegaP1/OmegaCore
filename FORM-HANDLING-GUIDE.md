@@ -1,6 +1,6 @@
-# Form Handling Options for OmegaCore
+# Form Handling Options for OmegaCore AI
 
-This guide outlines several free options for handling form submissions from the OmegaCore website contact form.
+This guide outlines several free options for handling form submissions from the OmegaCore AI website contact form.
 
 ## Option 1: Vercel Serverless Functions
 
@@ -203,7 +203,7 @@ Use SendGrid's free tier (100 emails/day) to send yourself an email when someone
        // Construct email
        const msg = {
          to: process.env.YOUR_EMAIL,
-         from: 'noreply@omegacore.com', // Verified sender required
+         from: 'noreply@OmegaCore AI.com', // Verified sender required
          subject: `New Contact Form: ${formData.name} - ${formData.service}`,
          text: `
            Name: ${formData.name}

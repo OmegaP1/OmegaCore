@@ -1,6 +1,6 @@
-# Vercel Analytics Setup for OmegaCore
+# Vercel Analytics Setup for OmegaCore AI
 
-Vercel Analytics has been integrated into the OmegaCore website to track page views and other user engagement metrics. This document explains the implementation and how to use it.
+Vercel Analytics has been integrated into the OmegaCore AI website to track page views and other user engagement metrics. This document explains the implementation and how to use it.
 
 ## Implementation Details
 
@@ -52,7 +52,7 @@ By default, Vercel Analytics tracks:
 After deploying your site to Vercel:
 
 1. Log in to your [Vercel dashboard](https://vercel.com/dashboard)
-2. Select your OmegaCore project
+2. Select your OmegaCore AI project
 3. Navigate to the "Analytics" tab
 4. You'll see data after your site receives some visits
 

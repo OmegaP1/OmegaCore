@@ -17,11 +17,13 @@ const Hero: React.FC = () => {
       <ParallaxElement
         offsetY={[-5, 5]}
         className="absolute top-20 right-20 w-64 h-64 rounded-full bg-accent/5 blur-3xl z-0"
+        children={undefined}
       />
       <ParallaxElement
         offsetY={[5, -15]}
         className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl z-0"
         speed={1.5}
+        children={undefined}
       />
 
       {/* Particles Background */}
@@ -50,10 +52,10 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl"
           >
-            OmegaCore provides cutting-edge AI and personal assistant services
-            to transform your business operations. Let us harness the power of
-            artificial intelligence to elevate your enterprise to the next
-            level.
+            OmegaCore AI provides cutting-edge AI and personal assistant
+            services to transform your business operations. Let us harness the
+            power of artificial intelligence to elevate your enterprise to the
+            next level.
           </motion.p>
 
           <motion.div

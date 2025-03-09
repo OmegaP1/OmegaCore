@@ -1,4 +1,4 @@
-# OmegaCore Website Requirements
+# OmegaCore AI Website Requirements
 # Node.js v16+ is recommended
 
 # Core dependencies
@@ -31,4 +31,4 @@ prettier@3.0.0
 # npm install -D eslint@8.46.0 eslint-config-next@13.4.12 typescript@5.1.6 @types/react@18.2.18 @types/node@20.4.5 prettier@3.0.0
 
 # Setup project with create-next-app
-# npx create-next-app@latest omegacore-website --typescript --tailwind --eslint
+# npx create-next-app@latest OmegaCore AI-website --typescript --tailwind --eslint
