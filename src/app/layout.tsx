@@ -8,7 +8,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "OmegaCore AI - Advanced AI Solutions & Generative AI Services",
+  metadataBase: new URL("https://omegacore-ai.com"),
+  title: {
+    default: "OmegaCore AI - Advanced AI Solutions & Generative AI Services",
+    template: "%s | OmegaCore AI",
+  },
   description:
     "OmegaCore AI provides cutting-edge AI services including personal assistants, generative AI solutions, and custom AI development to transform your business operations.",
   keywords:
@@ -19,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://OmegaCore AI.com",
+    url: "https://omegacore-ai.com",
     siteName: "OmegaCore AI Technologies",
     title: "OmegaCore AI - Advanced AI Solutions & Generative AI Services",
     description:
@@ -29,7 +33,7 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "OmegaCore AI AI Solutions",
+        alt: "OmegaCore AI Solutions",
       },
     ],
   },
@@ -38,7 +42,8 @@ export const metadata: Metadata = {
     title: "OmegaCore AI - Advanced AI Solutions",
     description: "Transform your business with cutting-edge AI solutions.",
     images: ["/images/og-image.jpg"],
-    creator: "@OmegaCore AI",
+    creator: "@OmegaCore_AI",
+    site: "@OmegaCore_AI",
   },
   robots: {
     index: true,
@@ -50,17 +55,24 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://omegacore-ai.com",
+    languages: {
+      en: "https://omegacore-ai.com",
+    },
+  },
+  verification: {
+    google: "google-site-verification-code", // Replace with your actual verification code
+  },
+  category: "technology",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png" }],
     other: [
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "32x32",
-        url: "/favicon-32x32.png",
-      },
       {
         rel: "mask-icon",
         url: "/safari-pinned-tab.svg",
@@ -69,9 +81,6 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
-  alternates: {
-    canonical: "https://OmegaCore AI.com",
-  },
 };
 
 export default function RootLayout({
@@ -83,6 +92,13 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <StructuredData />
+        {/* Additional SEO meta tags if needed */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
       </head>
       <body className={inter.className}>
         {children}

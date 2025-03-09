@@ -7,46 +7,58 @@ interface InitialLoaderProps {
   minimumLoadTimeMs?: number; // Minimum time to show the loader
 }
 
-const InitialLoader: React.FC<InitialLoaderProps> = ({ 
-  minimumLoadTimeMs = 1500 
+const InitialLoader: React.FC<InitialLoaderProps> = ({
+  minimumLoadTimeMs = 800,
 }) => {
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
+    // Check if this is the first visit to the site in this session
+    const isFirstVisit = !sessionStorage.getItem("hasVisitedBefore");
+
+    // If not the first visit, skip the loader
+    if (!isFirstVisit) {
+      setLoading(false);
+      return;
+    }
+
+    // Mark that the user has visited the site
+    sessionStorage.setItem("hasVisitedBefore", "true");
+
     // Use Promise.all to wait for both conditions:
     // 1. Minimum display time has passed
     // 2. Window load event has fired (all resources loaded)
     Promise.all([
       // Minimum time promise
-      new Promise(resolve => setTimeout(resolve, minimumLoadTimeMs)),
-      
+      new Promise((resolve) => setTimeout(resolve, minimumLoadTimeMs)),
+
       // Window loaded promise
-      new Promise(resolve => {
-        if (document.readyState === 'complete') {
+      new Promise((resolve) => {
+        if (document.readyState === "complete") {
           resolve(true);
         } else {
-          window.addEventListener('load', () => resolve(true), { once: true });
+          window.addEventListener("load", () => resolve(true), { once: true });
         }
-      })
+      }),
     ]).then(() => {
       // Add a small delay before hiding for smoother transition
       setTimeout(() => setLoading(false), 300);
     });
   }, [minimumLoadTimeMs]);
-  
+
   // When loader is done, enable scrolling again
   useEffect(() => {
     if (loading) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
-    
+
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [loading]);
-  
+
   return (
     <AnimatePresence>
       {loading && (

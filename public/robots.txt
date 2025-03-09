@@ -2,5 +2,20 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://OmegaCore-AI.com/sitemap.xml
+# Specify the path to your sitemap
+Sitemap: https://omegacore-ai.com/sitemap.xml
+
+# Increase crawl rate for main search engines
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: bingbot
+Crawl-delay: 1
+
+# Prevent crawling of specific unnecessary files/directories
+User-agent: *
+Disallow: /*.json$
+Disallow: /*_buildManifest.js$
+Disallow: /*_ssgManifest.js$
+Disallow: /*_middlewareManifest.js$
+Disallow: /.*-middleware.js$
