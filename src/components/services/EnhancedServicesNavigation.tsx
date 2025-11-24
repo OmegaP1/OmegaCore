@@ -17,49 +17,28 @@ interface ServiceLink {
   shortDesc: string;
 }
 
-// Enhanced services data with short descriptions
+// Enhanced services data with short descriptions - Updated for new AI Agent focus
 const services: ServiceLink[] = [
   {
-    id: "personal-assistants",
-    name: "AI Personal Assistants",
-    href: "/services/ai-personal-assistants",
-    icon: "personal-assistant",
-    shortDesc: "Custom AI helpers that boost your productivity"
-  },
-  {
-    id: "generative-ai",
-    name: "Generative AI",
-    href: "/services/generative-ai",
-    icon: "generative-ai",
-    shortDesc: "Create content, designs & more with AI"
-  },
-  {
-    id: "integration",
-    name: "AI Integration",
-    href: "/services/ai-integration",
-    icon: "integration",
-    shortDesc: "Connect AI with your existing systems"
-  },
-  {
     id: "development",
-    name: "Custom AI Development",
+    name: "Custom AI Agents",
     href: "/services/custom-ai-development",
     icon: "development",
-    shortDesc: "Tailor-made AI solutions for your needs"
+    shortDesc: "Tailored autonomous agents for your workflows"
   },
   {
     id: "strategy",
-    name: "AI Strategy",
+    name: "AI Strategy & Integration",
     href: "/services/ai-strategy-consulting",
     icon: "strategy",
-    shortDesc: "Expert guidance for your AI journey"
+    shortDesc: "Strategic planning and seamless integration"
   },
   {
     id: "education",
-    name: "AI Training",
+    name: "AI Team Training",
     href: "/services/ai-training",
     icon: "education",
-    shortDesc: "Help your team master AI technologies"
+    shortDesc: "Empower your team to work with AI agents"
   }
 ];
 

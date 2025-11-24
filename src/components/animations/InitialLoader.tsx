@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ANIMATION_TIMINGS } from "@/constants/animations";
 
 interface InitialLoaderProps {
   minimumLoadTimeMs?: number; // Minimum time to show the loader
 }
 
 const InitialLoader: React.FC<InitialLoaderProps> = ({
-  minimumLoadTimeMs = 800,
+  minimumLoadTimeMs = ANIMATION_TIMINGS.LOADER_MINIMUM_MS,
 }) => {
   const [loading, setLoading] = useState(true);
 

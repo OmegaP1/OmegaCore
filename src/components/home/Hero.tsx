@@ -19,12 +19,14 @@ const Hero: React.FC = () => {
           offsetY={[-5, 5]}
           className="absolute top-20 right-20 w-64 h-64 rounded-full bg-accent/5 blur-3xl z-0"
           children={undefined}
+          aria-hidden="true"
         />
         <ParallaxElement
           offsetY={[5, -15]}
           className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl z-0"
           speed={1.5}
           children={undefined}
+          aria-hidden="true"
         />
       </div>
 
@@ -36,13 +38,13 @@ const Hero: React.FC = () => {
         <div className="max-w-3xl">
           {/* Responsive text sizes */}
           <TextAnimation
-            text="Advanced AI Solutions"
+            text="AI Agents That Work"
             as="h1"
             type="word"
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-2 header-gradient-text"
           />
           <TextAnimation
-            text="for Your Business"
+            text="For Your Business"
             as="h1"
             type="word"
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white"
@@ -55,10 +57,9 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 mb-8 sm:mb-12 max-w-2xl"
           >
-            OmegaCore provides cutting-edge AI and personal assistant services
-            to transform your business operations. Let us harness the power of
-            artificial intelligence to elevate your enterprise to the next
-            level.
+            Deploy autonomous AI agents that automate repetitive tasks,
+            accelerate decision-making, and drive measurable business growth. No
+            more slow manual processes.
           </motion.p>
 
           <motion.div
@@ -83,6 +84,8 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        aria-label="Scroll down to see more content"
+        role="presentation"
       >
         <motion.div
           animate={{ y: [0, 12, 0] }}
@@ -90,7 +93,10 @@ const Hero: React.FC = () => {
           className="flex flex-col items-center"
         >
           <span className="text-white/60 text-sm mb-2">Scroll Down</span>
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+          <div
+            className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2"
+            aria-hidden="true"
+          >
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
