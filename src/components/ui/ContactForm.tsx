@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "./Button";
 import { supabaseClient } from "@/utils/supabase-client";
+import { validateEmail, sanitizeInput } from "@/utils/env-validator";
+import { FORM_CONFIG, ANIMATION_TIMINGS } from "@/constants/animations";
 
 interface FormData {
   name: string;
@@ -55,23 +57,54 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
         throw new Error("Please fill in all required fields");
       }
 
-      // Submit the form data directly to Supabase
-      const { error: supabaseError } = await supabaseClient
-        .from("contact_submissions")
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            company: formData.company || "",
-            message: formData.message,
-            service: formData.service,
-            created_at: new Date().toISOString(),
-          },
-        ]);
+      // Validate email format
+      if (!validateEmail(formData.email)) {
+        throw new Error("Please enter a valid email address");
+      }
 
-      if (supabaseError) {
-        console.error("Supabase error:", supabaseError);
-        throw new Error(supabaseError.message || "Error submitting form");
+      // Sanitize inputs to prevent XSS
+      const sanitizedData = {
+        name: sanitizeInput(formData.name),
+        email: sanitizeInput(formData.email),
+        company: sanitizeInput(formData.company),
+        message: sanitizeInput(formData.message),
+        service: sanitizeInput(formData.service),
+      };
+
+      // Check if Supabase is configured
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+      if (!supabaseUrl || !supabaseAnonKey) {
+        // Graceful degradation: log submission locally and show success
+        console.warn("Supabase not configured. Form data logged locally:");
+        console.log({
+          name: sanitizedData.name,
+          email: sanitizedData.email,
+          company: sanitizedData.company,
+          message: sanitizedData.message,
+          service: sanitizedData.service,
+          created_at: new Date().toISOString(),
+        });
+      } else {
+        // Submit the form data to Supabase if configured
+        const { error: supabaseError } = await supabaseClient
+          .from("contact_submissions")
+          .insert([
+            {
+              name: sanitizedData.name,
+              email: sanitizedData.email,
+              company: sanitizedData.company || "",
+              message: sanitizedData.message,
+              service: sanitizedData.service,
+              created_at: new Date().toISOString(),
+            },
+          ]);
+
+        if (supabaseError) {
+          console.error("Supabase error:", supabaseError);
+          throw new Error(supabaseError.message || "Error submitting form");
+        }
       }
 
       console.log("Form submitted successfully");
@@ -79,7 +112,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
       // Show success state
       setIsSubmitted(true);
 
-      // Reset form after 3 seconds and close modal
+      // Reset form after configured delay and close modal
       setTimeout(() => {
         setFormData({
           name: "",
@@ -89,7 +122,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
           service: "default",
         });
         onClose();
-      }, 3000);
+      }, FORM_CONFIG.SUCCESS_MESSAGE_DELAY_MS);
     } catch (err) {
       const error = err as Error;
       setError(
@@ -247,14 +280,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
             <option value="default" disabled>
               Select a service
             </option>
-            <option value="ai-personal-assistants">
-              AI Personal Assistants
+            <option value="custom-ai-development">Custom AI Agents</option>
+            <option value="ai-strategy-consulting">
+              AI Strategy & Integration
             </option>
-            <option value="generative-ai">Generative AI Solutions</option>
-            <option value="ai-integration">AI Integration Services</option>
-            <option value="custom-ai">Custom AI Development</option>
-            <option value="ai-strategy">AI Strategy Consulting</option>
-            <option value="ai-training">AI Training & Education</option>
+            <option value="ai-training">AI Team Training</option>
             <option value="other">Other</option>
           </select>
         </div>

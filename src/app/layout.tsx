@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import StructuredData from './structured-data'
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import ErrorBoundary from "@/components/layout/ErrorBoundary";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,10 +31,11 @@ export const metadata: Metadata = {
       "Transform your business with cutting-edge AI and generative AI solutions.",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "https://omegacore-ai.com/api/og",
         width: 1200,
         height: 630,
         alt: "OmegaCore AI Solutions",
+        type: "image/png",
       },
     ],
   },
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "OmegaCore AI - Advanced AI Solutions",
     description: "Transform your business with cutting-edge AI solutions.",
-    images: ["/images/og-image.jpg"],
+    images: ["https://omegacore-ai.com/api/og"],
     creator: "@OmegaCore_AI",
     site: "@OmegaCore_AI",
   },
@@ -101,7 +103,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        {children}
+        <ErrorBoundary>{children}</ErrorBoundary>
         <Analytics />
         <SpeedInsights />
       </body>

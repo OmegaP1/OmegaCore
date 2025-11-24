@@ -82,7 +82,7 @@ const ContactCTA: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10 text-center">
         <ScrollReveal>
           <TextAnimation
-            text="Ready to Transform Your Business with AI?"
+            text="Ready to Deploy Your AI Agents?"
             as="h2"
             type="word"
             className="text-4xl md:text-5xl font-bold text-white mb-6"
@@ -91,8 +91,9 @@ const ContactCTA: React.FC = () => {
 
         <ScrollReveal delay={0.2}>
           <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Contact us today to discover how OmegaCore AI can help you implement
-            powerful AI solutions tailored to your specific needs.
+            Let's discuss how custom AI agents can automate your workflow, save
+            time, and accelerate your business growth. Book a consultation with
+            our AI experts.
           </p>
         </ScrollReveal>
 

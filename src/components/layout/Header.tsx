@@ -45,7 +45,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo - smaller on mobile */}
-        <a href="#" className="flex items-center">
+        <a href="/" className="flex items-center">
           <div className="w-10 h-10 sm:w-14 sm:h-14 relative">
             <AnimatedLogo />
           </div>
