@@ -1,23 +1,50 @@
 "use client";
 
-import React, { useCallback } from 'react';
-import { loadFull } from "tsparticles";
+import React, { useCallback, useMemo } from "react";
 import type { Container, Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
+import { PARTICLES_CONFIG, BREAKPOINTS } from "@/constants/animations";
+
+// @ts-ignore - tsparticles optional dependency
+import { loadFull } from "tsparticles";
 
 interface ParticlesBackgroundProps {
   id?: string;
 }
 
-const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ id = "tsparticles" }) => {
+const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
+  id = "tsparticles",
+}) => {
   const particlesInit = useCallback(async (engine: Engine) => {
     // Load the tsparticles package
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    // Particles container loaded
+  const particlesLoaded = useCallback(
+    async (container: Container | undefined) => {
+      // Particles container loaded
+    },
+    []
+  );
+
+  // Detect if mobile based on window width
+  const isMobile = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < BREAKPOINTS.MD;
   }, []);
+
+  const particleCount = isMobile
+    ? PARTICLES_CONFIG.MOBILE_COUNT
+    : PARTICLES_CONFIG.DESKTOP_COUNT;
+  const particleSize = isMobile
+    ? PARTICLES_CONFIG.MOBILE_SIZE
+    : PARTICLES_CONFIG.DESKTOP_SIZE;
+  const distance = isMobile
+    ? PARTICLES_CONFIG.MOBILE_DISTANCE
+    : PARTICLES_CONFIG.DESKTOP_DISTANCE;
+  const grabDistance = isMobile
+    ? PARTICLES_CONFIG.MOBILE_GRAB_DISTANCE
+    : PARTICLES_CONFIG.DESKTOP_GRAB_DISTANCE;
 
   return (
     <Particles
@@ -27,52 +54,52 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ id = "tsparti
       options={{
         particles: {
           number: {
-            value: 80,
+            value: particleCount,
             density: {
               enable: true,
-              value_area: 800
-            }
+              value_area: 800,
+            },
           },
           color: {
-            value: "#4cc9f0"
+            value: PARTICLES_CONFIG.COLOR,
           },
           shape: {
             type: "circle",
             stroke: {
               width: 0,
-              color: "#000000"
-            }
+              color: "#000000",
+            },
           },
           opacity: {
-            value: 0.5,
+            value: PARTICLES_CONFIG.OPACITY_VALUE,
             random: true,
             anim: {
               enable: true,
               speed: 1,
-              opacity_min: 0.1,
-              sync: false
-            }
+              opacity_min: PARTICLES_CONFIG.OPACITY_MIN,
+              sync: false,
+            },
           },
           size: {
-            value: 3,
+            value: particleSize,
             random: true,
             anim: {
               enable: true,
-              speed: 2,
+              speed: PARTICLES_CONFIG.SIZE_ANIMATION_SPEED,
               size_min: 0.1,
-              sync: false
-            }
+              sync: false,
+            },
           },
           line_linked: {
             enable: true,
-            distance: 150,
-            color: "#3a0ca3",
-            opacity: 0.4,
-            width: 1
+            distance: distance,
+            color: PARTICLES_CONFIG.LINE_COLOR,
+            opacity: PARTICLES_CONFIG.LINE_OPACITY,
+            width: 1,
           },
           move: {
             enable: true,
-            speed: 1,
+            speed: PARTICLES_CONFIG.MOVE_SPEED,
             direction: "none",
             random: true,
             straight: false,
@@ -81,61 +108,63 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ id = "tsparti
             attract: {
               enable: false,
               rotateX: 600,
-              rotateY: 1200
-            }
-          }
+              rotateY: 1200,
+            },
+          },
         },
         interactivity: {
           detect_on: "canvas",
           events: {
             onhover: {
-              enable: true,
-              mode: "grab"
+              enable: !isMobile,
+              mode: "grab",
             },
             onclick: {
               enable: true,
-              mode: "push"
+              mode: "push",
             },
-            resize: true
+            resize: true,
           },
           modes: {
             grab: {
-              distance: 140,
+              distance: grabDistance,
               line_linked: {
-                opacity: 1
-              }
+                opacity: 1,
+              },
             },
             bubble: {
               distance: 400,
               size: 40,
               duration: 2,
               opacity: 8,
-              speed: 3
+              speed: 3,
             },
             repulse: {
               distance: 200,
-              duration: 0.4
+              duration: 0.4,
             },
             push: {
-              particles_nb: 4
+              particles_nb: 4,
             },
             remove: {
-              particles_nb: 2
-            }
-          }
+              particles_nb: 2,
+            },
+          },
         },
         retina_detect: true,
-        fpsLimit: 120,
+        fpsLimit: isMobile
+          ? PARTICLES_CONFIG.MOBILE_FPS_LIMIT
+          : PARTICLES_CONFIG.DESKTOP_FPS_LIMIT,
         fullScreen: {
-          enable: false
+          enable: false,
         },
         background: {
           color: "transparent",
           image: "",
           position: "50% 50%",
           repeat: "no-repeat",
-          size: "cover"
-        }
+          size: "cover",
+        },
       }}
       className="absolute inset-0 z-0"
     />
