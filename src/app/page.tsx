@@ -4,6 +4,7 @@ import Footer from '../components/layout/Footer';
 import Hero from '../components/home/Hero';
 import AIAgentsBenefits from "../components/home/AIAgentsBenefits";
 import Services from "../components/home/Services";
+import HowItWorks from "../components/home/HowItWorks";
 import ContactCTA from "../components/home/ContactCTA";
 import InitialLoader from "../components/animations/InitialLoader";
 import ScrollProgressBar from "../components/animations/ScrollProgressBar";
@@ -19,6 +20,7 @@ export default function Home() {
         <Hero />
         <AIAgentsBenefits />
         <Services />
+        <HowItWorks />
         <ContactCTA />
         <Footer />
       </PageTransition>
